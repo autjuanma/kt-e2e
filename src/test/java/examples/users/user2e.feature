@@ -12,7 +12,7 @@ Scenario: should return all users
   And match $.data[*].first_name contains "George","Janet","Emma","Eve"
 
 @masha
-Scenario: should return all users and save to file
+Scenario: get users and write file
   Given path '/api/users'
   When method get
   Then status 200
@@ -29,7 +29,6 @@ Scenario: should return a single user
   Then status 200
   And match $.data.first_name == "Janet"
 
-@e2e
 Scenario: should return users with pagination
   Given path '/api/users?page=2'
   When method get
