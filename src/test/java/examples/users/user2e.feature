@@ -51,8 +51,8 @@ Scenario: should update a user
   * def job = faker.job().title()
   * def updatedUser  = { name: '#(name)', job: '#(job)' }
   
-  Given path '/api/users'
+  Given path '/api/users/2'
   And request updatedUser 
   When method put
-  Then status 201
+  Then status 200
   And match $ contains updatedUser 
