@@ -2,6 +2,8 @@
 
 # `KT-E2E`
 
+![alt text](https://github.com/MashaAUT/kt-e2e/blob/master/manual-report/93873.jpg)
+
 #### <code>❯ REPLACE-ME</code>
 
 <p align="left">
