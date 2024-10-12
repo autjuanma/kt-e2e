@@ -56,3 +56,17 @@ Scenario: should update a user
   When method put
   Then status 200
   And match $ contains updatedUser 
+
+@delete
+Scenario: should delete a user
+  * def newUser = read('file:data/input/new-user.json')
+  Given path '/api/users'
+  And request newUser
+  When method post
+  Then status 201
+  And match $ contains newUser
+  * def userId = $.id
+  
+  Given path '/api/users/' + userId
+  When method delete
+  Then status 204
