@@ -16,9 +16,10 @@ Scenario: should return all users and save to file
   When method get
   Then status 200
   And match $.data[*].first_name contains "George", "Janet", "Emma", "Eve"
-  * def users = response.data  // Store the response data in a variable
-  * def filePath = 'data/output'  // Specify the file path
-  * karate.write(users, filePath)  // Write the response data to the file
+  * def users = response.data
+  * def filePath = 'data/output/users.json'
+  * def jsonString = JSON.stringify(users, null, 2)  // Convert data to pretty-printed JSON
+  * karate.write(jsonString, filePath)  // Write the JSON string to the file
 
 @e2e
 Scenario: should return a single user
